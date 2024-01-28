@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int main() { 
+
+int num;
+cout<<"Enter size of array : "<<endl;
+cin>>num;
+
+int arr [num];
+for (int i =0; i<num; i++) {
+    
+    cout<<"Enter the elements : "<<endl;
+    cin>>arr[i];
+}
+
+int maxi;
+ maxi = INT_MIN;
+
+for (int i =0; i<num;i++)
+{
+    if (arr[i]> maxi) {
+        maxi = arr[i];
+    }
+    
+}
+cout<<"Greatest number is an array is : "<<maxi<<endl;;
+return 0;
+}
