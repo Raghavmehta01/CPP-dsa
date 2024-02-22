@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+int main() { 
+
+int num ;
+cout<<"Enter a number :"<<endl;
+cin>>num;
+int n500,n100,n50,n20,n10;
+n100 = n500 = n50 = n20 = n10 =0;
+
+switch (num/500) {
+case 1 :
+n500 = num /500  ;
+num -= n500 * 500;
+break; }
+
+switch (num/100) {
+case 1 :
+ n100=num /100 ;
+num -= n100 * 100;
+break; }
+
+switch (num/50) {
+case 1 :
+ n50=num /50;
+num -= n50 * 50;
+break; }
+
+switch (num/20) {
+case 1 :
+ n20=num /20;
+num -= n20 * 20;
+break; }
+
+switch (num/10) {
+case 1 :
+n10=num /10  ;
+num -= n10 * 10;
+break; }
+
+cout<<"500: "<<n500<<endl;
+cout<<"100: "<<n100<<endl;
+cout<<"50: "<<n50<<endl;
+cout<<"20: "<<n20<<endl;
+cout<<"10: "<<n10<<endl;
+
+
+
+return 0;
+}
