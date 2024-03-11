@@ -1,0 +1,74 @@
+#include<iostream>
+
+struct Node
+{
+   int data;
+   Node *next;
+}*front = nullptr,*rear = nullptr;
+
+void insert(int);
+void remove();
+void display();
+
+int main()
+{
+   int choice, value;
+   std::cout << "\n:: Queue Implementation using Linked List ::\n";
+   while(true){
+      std::cout << "\n****** MENU ******\n";
+      std::cout << "1. Insert\n2. Delete\n3. Display\n4. Exit\n";
+      std::cout << "Enter your choice: ";
+      std::cin >> choice;
+      switch(choice){
+	 case 1: std::cout << "Enter the value to be insert: ";
+		 std::cin >> value;
+		 insert(value);
+		 break;
+	 case 2: remove(); break;
+	 case 3: display(); break;
+	 case 4: exit(0);
+	 default: std::cout << "\nWrong selection!!! Please try again!!!\n";
+      }
+   }
+   return 0;
+}
+
+void insert(int value)
+{
+   Node *newNode = new Node();
+   newNode->data = value;
+   newNode -> next = nullptr;
+   if(front == nullptr)
+      front = rear = newNode;
+   else{
+      rear -> next = newNode;
+      rear = newNode;
+   }
+   std::cout << "\nInsertion is Success!!!\n";
+}
+
+void remove()
+{
+   if(front == nullptr)
+      std::cout << "\nQueue is Empty!!!\n";
+   else{
+      Node *temp = front;
+      front = front -> next;
+      std::cout << "\nDeleted element: " << temp->data << "\n";
+      delete temp;
+   }
+}
+
+void display()
+{
+   if(front == nullptr)
+      std::cout << "\nQueue is Empty!!!\n";
+   else{
+      Node *temp = front;
+      while(temp->next != nullptr){
+	 std::cout << temp->data << "--->";
+	 temp = temp -> next;
+      }
+      std::cout << temp->data << "--->NULL\n";
+   }
+}
