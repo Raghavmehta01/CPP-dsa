@@ -1,0 +1,77 @@
+#include <iostream>
+
+#define MAX_SIZE 100
+
+using namespace std;
+
+class Stack {
+private:
+    int stack[MAX_SIZE];
+    int top;
+
+public:
+    Stack() : top(-1) {}
+
+    void push(int value) {
+        if (top == MAX_SIZE - 1) {
+            cout << "Stack Overflow" << endl;
+            return;
+        }
+        stack[++top] = value;
+        cout << "Pushed " << value << " onto the stack" << endl;
+    }
+
+    void pop() {
+        if (top == -1) {
+            cout << "Stack Underflow" << endl;
+            return;
+        }
+        cout << "Popped " << stack[top--] << " from the stack" << endl;
+    }
+
+    void display() {
+        if (top == -1) {
+            cout << "Stack is empty" << endl;
+            return;
+        }
+        cout << "Stack: ";
+        for (int i = 0; i <= top; ++i) {
+            cout << stack[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    int choice, value;
+    Stack stack;
+
+    while (true) {
+        cout << "\n1. Push\n";
+        cout << "2. Pop\n";
+        cout << "3. Display\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter value to push: ";
+                cin >> value;
+                stack.push(value);
+                break;
+            case 2:
+                stack.pop();
+                break;
+            case 3:
+                stack.display();
+                break;
+            case 4:
+                return 0;
+            default:
+                cout << "Invalid choice, please try again" << endl;
+        }
+    }
+
+    return 0;
+}
